@@ -6,6 +6,7 @@ use crate::broker::SimpleBroker;
 #[derive(Enum, Eq, PartialEq, Copy, Clone)]
 pub enum MutationType {
     Created,
+    Updated,
     Deleted,
 }
 

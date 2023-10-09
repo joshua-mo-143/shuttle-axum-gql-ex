@@ -2364,6 +2364,7 @@ dependencies = [
  "async-stream",
  "axum",
  "futures-channel",
+ "futures-core",
  "futures-util",
  "once_cell",
  "shuttle-axum",

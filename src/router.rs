@@ -25,13 +25,8 @@ async fn graphiql() -> impl IntoResponse {
 }
 
 pub fn init_router(db: PgPool) -> Router {
-    let (tx, rx): (Sender<Vec<Dog>>, Receiver<Vec<Dog>>) = channel(2);
-    let tx = Arc::new(tx);
-    let rx: Arc<BroadcastStream<Vec<Dog>>> = Arc::new(BroadcastStream::new(rx));
     let schema = Schema::build(Query, Mutation, Subscription)
         .data(db)
-        .data(tx)
-        .data(rx)
         .finish();
 
     // start the http server
