@@ -1,9 +1,4 @@
-use std::sync::Arc;
-use crate::{
-    mutation::Mutation,
-    query::{Dog, Query},
-    subscription::Subscription,
-};
+use crate::{mutation::Mutation, query::Query, subscription::Subscription};
 use async_graphql::{http::GraphiQLSource, Schema};
 use async_graphql_axum::*;
 use axum::{
@@ -12,8 +7,6 @@ use axum::{
     Router,
 };
 use sqlx::PgPool;
-use tokio::sync::broadcast::{channel, Receiver, Sender};
-use tokio_stream::wrappers::BroadcastStream;
 
 async fn graphiql() -> impl IntoResponse {
     Html(

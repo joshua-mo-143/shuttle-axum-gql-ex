@@ -1,3 +1,7 @@
+use futures_channel::mpsc::{self, UnboundedReceiver, UnboundedSender};
+use futures_util::{Stream, StreamExt};
+use once_cell::sync::Lazy;
+use slab::Slab;
 use std::{
     any::{Any, TypeId},
     collections::HashMap,
@@ -6,10 +10,6 @@ use std::{
     sync::Mutex,
     task::{Context, Poll},
 };
-use futures_channel::mpsc::{self, UnboundedReceiver, UnboundedSender};
-use futures_util::{Stream, StreamExt};
-use once_cell::sync::Lazy;
-use slab::Slab;
 
 static SUBSCRIBERS: Lazy<Mutex<HashMap<TypeId, Box<dyn Any + Send>>>> = Lazy::new(Default::default);
 

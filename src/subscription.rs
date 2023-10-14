@@ -1,7 +1,7 @@
+use crate::broker::SimpleBroker;
 use async_graphql::*;
 use futures_util::StreamExt;
 use tokio_stream::Stream;
-use crate::broker::SimpleBroker;
 
 #[derive(Enum, Eq, PartialEq, Copy, Clone)]
 pub enum MutationType {
